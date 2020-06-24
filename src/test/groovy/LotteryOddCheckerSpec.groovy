@@ -9,15 +9,16 @@ class LotteryOddCheckerSpec extends Specification {
     def "returns prizes won for a random generated ticket"() {
         given:
         def lotteryTickets = []
-        3.times {
-            lotteryTickets.add(GroovyMock(LotteryTicket))
+        4.times {
+            lotteryTickets.add(Mock(LotteryTicket))
         }
 
         and:
-        def lotteryTicketChecker = GroovyMock(LotteryTicketChecker)
+        def lotteryTicketChecker = Mock(LotteryTicketChecker)
         lotteryTicketChecker.check(_ as WinningNumbers, _ as LotteryTicket) >>> [
             "no win",
             "free ticket",
+            "no win",
             "£10"
         ]
 
@@ -25,6 +26,6 @@ class LotteryOddCheckerSpec extends Specification {
         def result = new LotteryOddChecker(lotteryTicketChecker).check(Mock(WinningNumbers), lotteryTickets)
 
         then:
-        result == "1x £10\n1x free ticket\n1x no win"
+        result == "1x £10\n1x free ticket\n2x no win"
     }
 }
