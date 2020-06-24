@@ -16,4 +16,6 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
     testCompile 'org.codehaus.groovy:groovy-all:2.5.5'
     testCompile 'org.spockframework:spock-core:1.2-groovy-2.5'
+    testCompile group: 'cglib', name: 'cglib-nodep', version: '2.2'
+    testCompile group: 'org.objenesis', name: 'objenesis', version: '1.2'
 }

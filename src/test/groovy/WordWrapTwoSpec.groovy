@@ -1,15 +1,15 @@
-import WordWrap.WordWrapThree
+import WordWrap.WordWrapTwo
 import spock.lang.Specification
 
-@Newify(WordWrapThree)
-class WordWrapThreeSpec extends Specification {
+@Newify(WordWrapTwo)
+class WordWrapTwoSpec extends Specification {
 
     def "a word under the maximum line length will return the word"() {
         given:
         def sentence = "abc"
 
         when:
-        def result = WordWrapThree(10).wrap(sentence)
+        def result = WordWrapTwo(10).wrap(sentence)
 
         then:
         result == sentence
@@ -20,7 +20,7 @@ class WordWrapThreeSpec extends Specification {
         def sentence = "abcde abcde"
 
         when:
-        def result = WordWrapThree(10).wrap(sentence)
+        def result = WordWrapTwo(10).wrap(sentence)
 
         then:
         result == "abcde\nabcde"
@@ -31,7 +31,7 @@ class WordWrapThreeSpec extends Specification {
         def sentence = "abcd efg hij"
 
         when:
-        def result = WordWrapThree(5).wrap(sentence)
+        def result = WordWrapTwo(5).wrap(sentence)
 
         then:
         result == "abcd\nefg\nhij"
@@ -42,7 +42,7 @@ class WordWrapThreeSpec extends Specification {
         def sentence = "abc"
 
         when:
-        def result = WordWrapThree(2).wrap(sentence)
+        def result = WordWrapTwo(2).wrap(sentence)
 
         then:
         result == sentence
@@ -53,7 +53,7 @@ class WordWrapThreeSpec extends Specification {
         def sentence = "a bcd"
 
         when:
-        def result = WordWrapThree(2).wrap(sentence)
+        def result = WordWrapTwo(2).wrap(sentence)
 
         then:
         result == "a\nbcd"
@@ -64,7 +64,7 @@ class WordWrapThreeSpec extends Specification {
         def sentence = "ab bc"
 
         when:
-        def result = WordWrapThree(5).wrap(sentence)
+        def result = WordWrapTwo(5).wrap(sentence)
 
         then:
         result == sentence
@@ -75,7 +75,7 @@ class WordWrapThreeSpec extends Specification {
         def sentence = "ab bc def"
 
         when:
-        def result = WordWrapThree(5).wrap(sentence)
+        def result = WordWrapTwo(5).wrap(sentence)
 
         then:
         result == "ab bc\ndef"
@@ -86,7 +86,7 @@ class WordWrapThreeSpec extends Specification {
         def sentence = "abcabcabc abc"
 
         when:
-        def result = WordWrapThree(6).wrap(sentence)
+        def result = WordWrapTwo(6).wrap(sentence)
 
         then:
         result == "abcabcabc\nabc"

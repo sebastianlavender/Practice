@@ -1,3 +1,5 @@
+package WordWrap;
+
 public class WordWrapThree {
 
     private final int lineLimit;
