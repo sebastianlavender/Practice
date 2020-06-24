@@ -1,9 +1,9 @@
 package Lottery;
 
-public class LotteryTicketChecker {
+public class LotteryPrizeChecker {
 
     public String check(WinningNumbers winningNumbers, LotteryTicket lotteryTicket) {
-        Result result = winningNumbers.checkAgainstNumbers(lotteryTicket);
+        Result result = winningNumbers.checkAgainstTicket(lotteryTicket);
 
         switch (result.getNumbersMatched()) {
             case 2:

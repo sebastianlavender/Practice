@@ -6,17 +6,17 @@ import java.util.Map;
 
 public class LotteryOddChecker {
 
-    private final LotteryTicketChecker lotteryTicketChecker;
+    private final LotteryPrizeChecker lotteryPrizeChecker;
 
-    public LotteryOddChecker(LotteryTicketChecker lotteryTicketChecker) {
-        this.lotteryTicketChecker = lotteryTicketChecker;
+    public LotteryOddChecker(LotteryPrizeChecker lotteryPrizeChecker) {
+        this.lotteryPrizeChecker = lotteryPrizeChecker;
     }
 
     public String check(WinningNumbers winningNumbers, List<LotteryTicket> lotteryTickets) {
         Map<String, Integer> results = new HashMap<>();
 
         for(LotteryTicket ticket : lotteryTickets) {
-            results.compute(lotteryTicketChecker.check(winningNumbers, ticket), (k, v) -> v == null ? 1 : ++v);
+            results.compute(lotteryPrizeChecker.check(winningNumbers, ticket), (k, v) -> v == null ? 1 : ++v);
         }
 
         StringBuilder totalPrizes = new StringBuilder();

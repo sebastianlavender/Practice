@@ -1,6 +1,6 @@
 import Lottery.LotteryOddChecker
 import Lottery.LotteryTicket
-import Lottery.LotteryTicketChecker
+import Lottery.LotteryPrizeChecker
 import Lottery.WinningNumbers
 import spock.lang.Specification
 
@@ -14,7 +14,7 @@ class LotteryOddCheckerSpec extends Specification {
         }
 
         and:
-        def lotteryTicketChecker = Mock(LotteryTicketChecker)
+        def lotteryTicketChecker = Mock(LotteryPrizeChecker)
         lotteryTicketChecker.check(_ as WinningNumbers, _ as LotteryTicket) >>> [
             "no win",
             "free ticket",

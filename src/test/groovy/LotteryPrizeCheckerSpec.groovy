@@ -1,10 +1,10 @@
 import Lottery.LotteryTicket
-import Lottery.LotteryTicketChecker
+import Lottery.LotteryPrizeChecker
 import Lottery.WinningNumbers
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class LotteryTicketCheckerSpec extends Specification {
+class LotteryPrizeCheckerSpec extends Specification {
 
     def "if no numbers match, returns no match"() {
         given:
@@ -12,7 +12,7 @@ class LotteryTicketCheckerSpec extends Specification {
         def lotteryTicket = new LotteryTicket([7, 8, 9, 10, 11, 12])
 
         when:
-        def result = new LotteryTicketChecker().check(winningNumbers, lotteryTicket)
+        def result = new LotteryPrizeChecker().check(winningNumbers, lotteryTicket)
 
         then:
         result == "no match"
@@ -24,7 +24,7 @@ class LotteryTicketCheckerSpec extends Specification {
         def lotteryTicket = new LotteryTicket([6,8,9,10,11,12])
 
         when:
-        def result = new LotteryTicketChecker().check(winningNumbers, lotteryTicket)
+        def result = new LotteryPrizeChecker().check(winningNumbers, lotteryTicket)
 
         then:
         result == "no match"
@@ -36,7 +36,7 @@ class LotteryTicketCheckerSpec extends Specification {
         def winningNumbers = new WinningNumbers([1,2,3,4,5,6], 7)
 
         when:
-        def result = new LotteryTicketChecker().check(winningNumbers, new LotteryTicket(lotteryTicket))
+        def result = new LotteryPrizeChecker().check(winningNumbers, new LotteryTicket(lotteryTicket))
 
         then:
         result == prize
@@ -56,7 +56,7 @@ class LotteryTicketCheckerSpec extends Specification {
         def lotteryTicket  = new LotteryTicket([1, 2, 3, 4, 5, 7])
 
         when:
-        def result = new LotteryTicketChecker().check(winningNumbers, lotteryTicket)
+        def result = new LotteryPrizeChecker().check(winningNumbers, lotteryTicket)
 
         then:
         result == "£10000"

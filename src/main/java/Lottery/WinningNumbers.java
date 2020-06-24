@@ -11,7 +11,7 @@ public class WinningNumbers {
         this.bonusBall = bonusBall;
     }
 
-    public Result checkAgainstNumbers(LotteryTicket ticket) {
+    public Result checkAgainstTicket(LotteryTicket ticket) {
         int matchingNumbers = 0;
         boolean bonusBallMatched = false;
 
